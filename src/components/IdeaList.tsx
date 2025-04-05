@@ -6,9 +6,10 @@ type Idea={
 
 type Props={
     ideas:Idea[];
+    onDeleteIdea:(index:number)=>void;
 };
 
-const IdeaList=({ideas}:Props)=>{
+const IdeaList=({ideas,onDeleteIdea}:Props)=>{
     return(
         <ul>
             {ideas.map((idea,index)=>(
@@ -16,6 +17,7 @@ const IdeaList=({ideas}:Props)=>{
                     <strong>{idea.title}</strong><br />
                     {idea.memo}<br />
                     <small>{idea.createdAt}</small>
+                    <button onClick={()=>onDeleteIdea(index)}>削除</button>
                 </li>
             ))}
         </ul>
