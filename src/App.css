@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -39,4 +41,43 @@
 
 .read-the-docs {
   color: #888;
+}
+
+body {
+  background-color: #fef9f3;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  color: #444;
+}
+
+h1 {
+  color: #a3d2ca;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+li {
+  background: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(163, 210, 202, 0.2);
+  padding: 1rem;
+  margin: 1rem 0;
+  transition: transform 0.2s ease;
+}
+
+li:hover {
+  transform: scale(1.02);
+}
+
+button {
+  background: #f7d9d9;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.4rem 1rem;
+  font-size: 0.9rem;
+  color: #333;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ffd6a5;
 }

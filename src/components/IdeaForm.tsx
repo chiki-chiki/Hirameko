@@ -25,8 +25,10 @@ const IdeaForm = ({onAddIdea}:Props) => {
     return (
       <form onSubmit={handleSubmit}>
         <input type="text" placeholder="アイデアのタイトル" value={title} onChange={(e)=>setTitle(e.target.value)} />
+        <br/>
         <textarea  placeholder="ひらめきメモ" value={memo} onChange={(e)=>setMemo(e.target.value)}></textarea>
-        <p>え！「{title}」とか天才やん！やば！</p>
+        <br/>
+
         <button type="submit">登録する</button>
       </form>
     );

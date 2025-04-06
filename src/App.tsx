@@ -47,9 +47,7 @@ function App() {
 
   return (
     <>
-      <h1>ひらめこ</h1>
-      
-      <p>この画面開いてるだけでえらすぎる！</p>
+      <h1 className="text-4xl font-bold text-rose-400 tracking-wide mb-4 text-center drop-shadow-md">hirameco</h1>
       
       <IdeaForm onAddIdea={handleAddIdea}/>
       <IdeaList ideas={ideas} onDeleteIdea={handleDeleteIdea}/>
