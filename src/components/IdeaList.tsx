@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 
 type Idea={
@@ -15,17 +15,26 @@ type Props={
     onEditSubmit:(index:number,updated:Idea)=>void;
 };
 
+
+
 const IdeaList=({ideas,onDeleteIdea,editingIndex,onEditClick,onEditSubmit}:Props)=>{
       const [title,setTitle]=useState("");
       const [memo,setMemo]=useState("");
+
+      useEffect(()=>{
+        if(editingIndex!==null){
+            setTitle(ideas[editingIndex].title);
+            setMemo(ideas[editingIndex].memo);
+        }
+    },[editingIndex]);
     return(
         <ul>
             {ideas.map((idea,index)=>(
                 <li key={index}>
                     {editingIndex===index?(
                         <>
-                        <input value={idea.title} onChange={(e)=>{setTitle(e.target.value)}}/>
-                        <textarea value={idea.memo} onChange={(e)=>{setMemo(e.target.value)}}/>
+                        <input value={title} onChange={(e)=>{setTitle(e.target.value);console.log(e.target.value)}}/>
+                        <textarea value={memo} onChange={(e)=>{setMemo(e.target.value)}}/>
                         <button onClick={()=>onEditSubmit(index,{title,memo,createdAt:idea.createdAt})}>保存</button>
                         </>
                     ):(
