@@ -54,11 +54,11 @@
 ## 📂 セットアップ方法（技術者向け）
 
 ```bash
-git clone https://github.com/あなた/ひらめこ.git
+git clone https://github.com/chiki-chiki/Hirameko.git
 cd hirameko
 npm install
 npm run dev
-
+```bash
 
 # React + TypeScript + Vite
 
