@@ -15,6 +15,9 @@ function App() {
   
   const[ideas,setIdeas]=useState<Idea[]>([]);
   const [isInitialized, setIsInitialized] = useState(false);
+  const [editingIndex,setEditingIndex]=useState<number|null>(null);
+
+
 
   useEffect(()=>{
     const savedIdeas=localStorage.getItem("ideas");
@@ -45,12 +48,23 @@ function App() {
   }
   //console.log("現在の ideas", ideas);
 
+  const handleEditClick=(index:number)=>{
+    setEditingIndex(index);
+  };
+
+  const handleEditSubmit=(index:number,updatedIdea:Idea)=>{
+    const newIdeas=[...ideas];
+    newIdeas[index]=updatedIdea;
+    setIdeas(newIdeas);
+    setEditingIndex(null);
+  };
+
   return (
     <>
       <h1 className="text-4xl font-bold text-rose-400 tracking-wide mb-4 text-center drop-shadow-md">hirameco</h1>
       
       <IdeaForm onAddIdea={handleAddIdea}/>
-      <IdeaList ideas={ideas} onDeleteIdea={handleDeleteIdea}/>
+      <IdeaList ideas={ideas} onDeleteIdea={handleDeleteIdea} editingIndex={editingIndex} onEditClick={handleEditClick} onEditSubmit={handleEditSubmit}/>
 
       
     </>
